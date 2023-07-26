@@ -1,0 +1,29 @@
+sudo apt-get update
+apt-get install apache2 openssl
+a2enmod ssl
+a2enmod rewrite 
+systemctl restart apache2
+mkdir /etc/apache2/certificate
+cd /etc/apache2/certificate
+openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out apache-certificate.crt -keyout apache.key
+question :  Country -IN, 
+            state - MP,
+            city - MU 
+            Organizaion -TechsBucket, 
+            group/Name - Techs,
+            website-smtp.emailer.net, 
+            email - info@techsbucket.com
+
+close this terminal 
+open new terninal edit 
+vi /etc/apache2/sites-enabled/000-default.conf
+
+add this blw 3line of code on .conf file
+SSLEngine on
+SSLCertificateFile /etc/apache2/certificate/apache-certificate.crt
+SSLCertificateKeyFile /etc/apache2/certificate/apache.key
+
+
+complete
+
+
