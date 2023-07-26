@@ -18,7 +18,10 @@ close this terminal
 open new terninal edit 
 vi /etc/apache2/sites-enabled/000-default.conf
 
+port replace 80 to 443
 add this blw 3line of code on .conf file
+
+
 SSLEngine on
 SSLCertificateFile /etc/apache2/certificate/apache-certificate.crt
 SSLCertificateKeyFile /etc/apache2/certificate/apache.key
